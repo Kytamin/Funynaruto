@@ -26,9 +26,9 @@ class Game {
 
     collisionCheck() {
         if (
-            this.player.x < this.coin.x + this.coin.radius * 2 &&
+            this.player.x < this.coin.x + this.coin.width &&
             this.player.x + this.player.width > this.coin.x &&
-            this.player.y < this.coin.y + this.coin.radius * 2 &&
+            this.player.y < this.coin.y + this.coin.width &&
             this.player.y + this.player.height > this.coin.y
         ) {
             this.coin.moveCoin();
@@ -41,13 +41,15 @@ class Game {
             this.player.y + this.player.height > this.obstacle.y
         ) {
             this.endGame();
-
+        }
+        if(this.score===10){
+            myObstacle.speed+=20
         }
     }
 
     updateGame() {
         let ctx = document.getElementById('responsive-canvas').getContext('2d');
-        ctx.clearRect(0, 0, 480, 200); // added in
+        ctx.clearRect(0, 0, 480, 200);
         myCoin.updateCoin();
         myPlayer.update();
         myObstacle.updateObstacle();
@@ -87,6 +89,11 @@ class GameArea {
     endGameMessage() {
         let ctx = this.context;
         ctx.font = '50px Consolas';
-        ctx.strokeText('GAME OVER  ', 120, 130);
+        ctx.strokeText('GAME OVER', 120, 130);
+    }
+    winGameMessage(){
+        let ctx = this.context;
+        ctx.font ='60px Consolas'
+        ctx.strokeText(' You Win',120,130)
     }
 }

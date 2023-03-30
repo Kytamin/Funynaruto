@@ -1,24 +1,21 @@
 class Coin {
-    constructor(x, y, radius, startAngle, endAngle, color) {
-        //this.width = width;
-        // this.height = height;
+    constructor(x, y, width,height, color) {
+        this.width = width;
+        this.height = height;
         this.x = x;
         this.y = y;
-        this.radius = radius;
-        this.startAngle = startAngle;
-        this.endAngle = endAngle;
+        // this.radius = radius;
+        // this.startAngle = startAngle;
+        // this.endAngle = endAngle;
         this.color = color;
     }
 
     makeCoin() {
-        let ctx = document.getElementById("responsive-canvas").getContext('2d'); // comment out later?
-
-        //ctx.fillRect(this.x, this.y, this.width, this.height);
-        ctx.beginPath();
-        ctx.fillStyle = this.color;
-        ctx.arc(this.x, this.y, this.radius, this.startAngle, this.endAngle);
-        ctx.fill();
-        ctx.stroke();
+        let ctx = document.getElementById("responsive-canvas").getContext('2d');
+        let img= new Image()
+        img.onload= () => {
+            ctx.drawImage(img,this.x,this.y,this.width,this.height)
+        }
     }
 
     moveCoin() {
@@ -28,10 +25,8 @@ class Coin {
 
     updateCoin() {
         let ctx = document.getElementById('responsive-canvas').getContext('2d');
-        ctx.beginPath();
-        ctx.fillStyle = this.color;
-        ctx.arc(this.x, this.y, this.radius, this.startAngle, this.endAngle);
-        ctx.fill();
-        ctx.stroke();
+        let img= new Image()
+        img.src="/img/money.png"
+        ctx.drawImage(img,this.x,this.y,this.width,this.height)
     }
 }
