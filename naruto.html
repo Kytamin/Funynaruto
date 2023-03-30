@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naruto</title>
+    <style>
+        h1{
+            margin-left: 500px;
+        }
+        .bg{
+            background-image: url("img/BG.jpg");
+            background-size: cover;
+            width:480px;
+            height:270px;
+            margin-left: 500px;
+        }
+    </style>
+</head>
+<body>
+<audio onload="" id="music" src="audio/narutosong.mp3" autoplay ></audio>
+<div>
+    <h2>Hướng dẫn:</h2><br>
+    <p>sử dụng các phím mũi tên để giúp naruto lấy những điểm tròn <br>và né tránh Zabuza</p>
+</div>
+<div class="bg">
+    <canvas id="responsive-canvas" ></canvas>
+</div>
+
+<h1></h1>
+
+<script src="player.js"></script>
+<script src="Gamearena.js"></script>
+<script src="coin.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
