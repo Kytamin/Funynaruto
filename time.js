@@ -11,11 +11,11 @@ function startTimer(duration, display) {
 
         if (--time < 0) {
             time = duration;
-            this.endGame()
+            this.endGame();
         }
     }, 1000);
 
 }
-let fiveMinutes = 60 * 5,
-    display = document.getElementById("time");
+let fiveMinutes = 60 * 2,
+    display = document.getElementById("responsive-canvas");
 startTimer(fiveMinutes, display);

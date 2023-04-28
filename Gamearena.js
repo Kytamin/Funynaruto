@@ -42,8 +42,11 @@ class Game {
         ) {
             this.endGame();
         }
-        if(this.score===10){
-            myObstacle.speed+=20
+        if(this.score===5){
+            this.player.color = 'white';
+            this.score = 0;
+            this.gameArea.winGameMessage();
+            cancelAnimationFrame();
         }
     }
 
@@ -59,7 +62,7 @@ class Game {
         requestAnimationFrame(() => this.updateGame());
     }
 
-    endGame() {
+    endGame(stroketext) {
         this.player.color = 'white';
         this.score = 0;
         this.gameArea.endGameMessage();
@@ -74,7 +77,6 @@ class GameArea {
         this.canvas.width = 480;
         this.canvas.height = 270;
         this.context = this.canvas.getContext('2d');
-
         this.context.fillStyle = 'black';
         this.context.fillRect(0, 200, 480, 70);
     }
@@ -89,11 +91,14 @@ class GameArea {
     endGameMessage() {
         let ctx = this.context;
         ctx.font = '50px Consolas';
+        ctx.strokeStyle="red"
+        ctx.fill()
         ctx.strokeText('GAME OVER', 120, 130);
     }
     winGameMessage(){
         let ctx = this.context;
         ctx.font ='60px Consolas'
+        ctx.strokeStyle="red"
         ctx.strokeText(' You Win',120,130)
     }
 }

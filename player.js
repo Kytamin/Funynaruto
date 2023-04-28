@@ -118,9 +118,7 @@ class Obstacle extends Player {
 
     }
     updateObstacle() {
-        //moves player side to side
         this.x += this.velX;
-
         let ctx = document.querySelector('canvas').getContext('2d');
         let img= new Image()
         img.src="/img/zabuza.png"
